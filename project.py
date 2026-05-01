@@ -1,0 +1,16 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+df=pd.read_csv("Superstore sales dataset.csv",encoding='latin1')
+print(df.head())
+print(df.columns)
+print("Total sales:",df['Sales'].sum())
+print("Total Peofir:",df['Sales'].sum())
+category_sales=df.groupby('Category')['Sales'].sum()
+print(category_sales)
+category_profit=df.groupby('Category')['Profit'].sum()
+print(category_profit)
+category_sales.plot(kind='bar')
+plt.title("Sales by Category")
+plt.xlabel("Category")
+plt.xlabel("sales")
+plt.show()
